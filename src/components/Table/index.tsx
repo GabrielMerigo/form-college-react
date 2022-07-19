@@ -15,7 +15,7 @@ export function Table({ data }: TableProps) {
   return (
     <>
       <Header hideListLink />
-      <ChakraTable fontSize={18} width="40rem">
+      <ChakraTable fontSize={18} width="40rem" height="16rem" background="#F2F2F2">
         <Thead>
           <Tr>
             <Th><Text fontSize={10}>Nome</Text></Th>
@@ -25,7 +25,7 @@ export function Table({ data }: TableProps) {
         </Thead>
         <Tbody>
           {data?.map(product => (
-            <Tr>
+            <Tr color={"black"}>
               <Td><Text fontSize={10}>{product.name}</Text></Td>
               <Td><Text fontSize={10}>{product.price}</Text></Td>
               <Td><Text fontSize={10}>{product.hasInStorage}</Text></Td>

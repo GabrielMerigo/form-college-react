@@ -22,14 +22,14 @@ export function Header({
       {!hideUpdateLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/updateProduct" passHref>
-            <a href="">Atualizar Produtos</a>
+            <a href="">Atualizar Produto</a>
           </Link>
         </Box>
       )}
       {!hideDeleteLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/deleteProduct" passHref>
-            <a href="">Deletar Produtos</a>
+            <a href="">Deletar Produto</a>
           </Link>
         </Box>
       )}

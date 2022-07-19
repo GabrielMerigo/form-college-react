@@ -7,6 +7,7 @@ const UpdateProduct = () => (
     handleClick={() => { }}
     nameButton="Atulizar Produto"
     hideUpdateLink
+    hasId
   />
 )
 

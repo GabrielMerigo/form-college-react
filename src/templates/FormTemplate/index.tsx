@@ -24,7 +24,8 @@ type FormTemplateProps = {
   hideRegisterLink?: boolean;
   hideUpdateLink?: boolean;
   isToRead?: boolean;
-  data?: Product[]
+  data?: Product[],
+  hasId?: boolean
 }
 
 const FormTemplate = ({
@@ -39,12 +40,13 @@ const FormTemplate = ({
   hideRegisterLink,
   hideUpdateLink,
   isToRead,
+  hasId,
   data
 }: FormTemplateProps) => (
   <S.Wrapper>
     <Heading>{title}</Heading>
     {!isToRead ? (
-      <Stack padding={5} background="#F2F2F2" height="26rem" width="40rem" spacing={8} direction='column'>
+      <Stack padding={5} background="#F2F2F2" height={hasId ? "29rem" : "24rem"} width="40rem" spacing={8} direction='column'>
         <Header
           hideListLink={hideListLink}
           hideDeleteLink={hideDeleteLink}
@@ -54,11 +56,19 @@ const FormTemplate = ({
         <FormControl>
           <Input value={valueName} style={{ color: 'black' }} name="nome" label="Nome Produto" />
           <InputNumber value={valuePrice} style={{ color: 'black' }} name="nome" label="Preço" />
-          <Select value={valueHasInStorage} label="It Has In Storage?" name="hasInStorage" options={[
-            { name: 'Selecione', value: 'selecione' },
-            { name: 'Sim', value: 'sim' },
-            { name: 'Não', value: 'nao' }
-          ]} />
+          <Select
+            value={valueHasInStorage}
+            label="It Has In Storage?"
+            name="hasInStorage"
+            options={[
+              { name: 'Selecione', value: 'selecione' },
+              { name: 'Sim', value: 'sim' },
+              { name: 'Não', value: 'nao' }
+            ]}
+          />
+          {hasId && (
+            <Input value={valueName} style={{ color: 'black' }} name="idProduto" label="ID Produto" />
+          )}
           <Button onClick={handleClick} marginTop={5} size="lg" colorScheme='blue'>{nameButton}</Button>
         </FormControl>
       </Stack>
