@@ -1,7 +1,7 @@
 
 import FormTemplate from "templates/FormTemplate"
 
-const updateProduct = () => (
+const UpdateProduct = () => (
   <FormTemplate
     title="Atualizar Produto"
     handleClick={() => { }}
@@ -10,4 +10,4 @@ const updateProduct = () => (
   />
 )
 
-export default updateProduct
+export default UpdateProduct
