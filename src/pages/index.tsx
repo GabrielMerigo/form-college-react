@@ -1,10 +1,11 @@
-import Main from 'components/Main'
+
+import FormRegisterTemplate from "templates/FormRegisterTemplate"
 import { ChakraProvider } from '@chakra-ui/react'
 
-export default function Home() {
-  return (
-    <ChakraProvider>
-      <Main />
-    </ChakraProvider>
-  )
-}
+const FormRegister = () => (
+  <ChakraProvider>
+    <FormRegisterTemplate />
+  </ChakraProvider>
+)
+
+export default FormRegister
