@@ -1,20 +1,9 @@
 import * as S from './styles'
+import Form from '../Form';
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'Typescript, React JS, Next JS and Styled-Components'
-}) => (
+const Main = () => (
   <S.Wrapper>
-    <S.Title>{title}</S.Title>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Imagem de um átomo e React Avançado escrito ao lado"
-    />
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Desenvolvedor de frente para tela com código"
-    />
+    <Form />
   </S.Wrapper>
 )
 

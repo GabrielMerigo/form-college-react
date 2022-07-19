@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html{ 
+  html{
     font-size: 62.5%;
   }
 
@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  body{ 
+  body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
 `
