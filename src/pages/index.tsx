@@ -1,10 +1,15 @@
 
-import FormRegisterTemplate from "templates/FormRegisterTemplate"
+import FormTemplate from "templates/FormTemplate"
 import { ChakraProvider } from '@chakra-ui/react'
 
 const FormRegister = () => (
   <ChakraProvider>
-    <FormRegisterTemplate />
+    <FormTemplate
+      title="Formulário de Registro"
+      handleClick={() => { }}
+      nameButton="Registrar Produto"
+      hideRegisterLink
+    />
   </ChakraProvider>
 )
 
