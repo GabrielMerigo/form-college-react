@@ -5,7 +5,7 @@ export type Product = {
   name: string;
   price: string;
   hasInStorage: string;
-  id: string;
+  id?: string;
 }
 
 type TableProps = {
