@@ -1,17 +1,17 @@
-import { FormControl, FormLabel, InputProps as ChakraInputProps, Select as SelectChakra } from "@chakra-ui/react";
+import { FormControl, FormLabel, SelectProps as SelectPropsChakra, Select as SelectChakra } from "@chakra-ui/react";
 
 type Option = {
   value: string;
   name: string;
 }
 
-interface InputProps extends ChakraInputProps {
+interface SelectProps extends SelectPropsChakra {
   name: string;
   label?: string;
   options: Option[]
 }
 
-function Select({ name, label, options }: InputProps) {
+function Select({ name, label, options, ...rest }: SelectProps) {
   return (
     <FormControl>
       {label && <FormLabel style={{ margin: 0, color: '#06092b' }} htmlFor={name}>{label}</FormLabel>}
@@ -25,6 +25,7 @@ function Select({ name, label, options }: InputProps) {
           bgColor: 'gray.700'
         }}
         size="lg"
+        {...rest}
       >
         {options.map(option => (
           <option value={option.value}>{option.name}</option>

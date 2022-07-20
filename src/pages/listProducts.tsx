@@ -18,11 +18,10 @@ const ListProducts = () => {
 
   return (
     <FormTemplate
-      title="Listar Produtos"
+      title="List Products"
       handleClick={() => { }}
       data={products}
       isToRead
-      nameButton=""
       hideUpdateLink
     />
   )

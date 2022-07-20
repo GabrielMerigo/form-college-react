@@ -22,28 +22,28 @@ export function Header({
       {!hideUpdateLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/updateProduct" passHref>
-            <a href="">Atualizar Produto</a>
+            <a href="">Update Product</a>
           </Link>
         </Box>
       )}
       {!hideDeleteLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/deleteProduct" passHref>
-            <a href="">Deletar Produto</a>
+            <a href="">Delete Product</a>
           </Link>
         </Box>
       )}
       {!hideRegisterLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/" passHref>
-            <a href="">Registrar Produto</a>
+            <a href="">Register Product</a>
           </Link>
         </Box>
       )}
       {!hideListLink && (
         <Box padding={1} background="#8999bd" borderRadius={2}>
           <Link href="/listProducts" passHref>
-            <a href="">Listar Produtos</a>
+            <a href="">List Products</a>
           </Link>
         </Box>
       )}

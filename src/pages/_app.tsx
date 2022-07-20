@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import GlobalStyle from '../styles/global'
 import { ChakraProvider } from '@chakra-ui/react'
+import 'toastr/build/toastr.min.css'
 
 function App({ Component, pageProps }: AppProps) {
   return (

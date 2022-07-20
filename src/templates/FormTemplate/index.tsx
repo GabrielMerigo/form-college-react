@@ -11,13 +11,12 @@ import {
 } from '@chakra-ui/react'
 import { Header } from 'components/Header'
 import { Product, Table } from 'components/Table'
-import { AxiosResponse } from 'axios'
 import { useState } from 'react'
 
 type FormTemplateProps = {
   title: string;
   nameButton?: string;
-  handleClick: (data: Product) => void;
+  handleClick: any;
   valueName?: string;
   valuePrice?: string
   valueHasInStorage?: string;
@@ -27,7 +26,8 @@ type FormTemplateProps = {
   hideUpdateLink?: boolean;
   isToRead?: boolean;
   data?: Product[];
-  hasId?: boolean
+  hasId?: boolean;
+  hideFieldsExecptID?: boolean;
 }
 
 const FormTemplate = ({
@@ -40,10 +40,11 @@ const FormTemplate = ({
   hideUpdateLink,
   isToRead,
   hasId,
-  data
+  data,
+  hideFieldsExecptID
 }: FormTemplateProps) => {
   const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState<number>();
   const [hasInStorage, setHasInStorage] = useState('');
   const [idProduct, setIdProduct] = useState('');
 
@@ -59,33 +60,69 @@ const FormTemplate = ({
             hideUpdateLink={hideUpdateLink}
           />
           <FormControl>
-            <Input onChange={(e) => setName(e.target.value)} value={name} style={{ color: 'black' }} name="nome" label="Nome Produto" />
-            <InputNumber onChange={(e) => setPrice(e.target.value)} value={price} style={{ color: 'black' }} name="nome" label="Preço" />
-            <Select
-              value={hasInStorage}
-              label="It Has In Storage?"
-              name="hasInStorage"
-              onChange={(e) => setHasInStorage(e.target.value)}
-              options={[
-                { name: 'Selecione', value: 'selecione' },
-                { name: 'Sim', value: 'sim' },
-                { name: 'Não', value: 'nao' }
-              ]}
-            />
+            {!hideFieldsExecptID && (
+              <>
+                <Input
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  style={{ color: 'black' }}
+                  name="nome"
+                  label="Product Name"
+                />
+
+                <InputNumber
+                  onInput={(e) => setPrice(Number((e.target as any).value))}
+                  value={price}
+                  style={{ color: 'black' }}
+                  name="name"
+                  label="Price"
+                />
+                <Select
+                  value={hasInStorage}
+                  label="Is There in Storage?"
+                  name="hasInStorage"
+                  onChange={(e) => setHasInStorage(e.target.value)}
+                  options={[
+                    { name: 'Select', value: 'select' },
+                    { name: 'Yes', value: 'yes' },
+                    { name: 'No', value: 'no' }
+                  ]}
+                />
+              </>
+            )}
+
             {hasId && (
-              <Input onChange={(e) => setIdProduct(e.target.value)} value={idProduct} style={{ color: 'black' }} name="idProduto" label="ID Produto" />
+              <Input
+                onChange={(e) => setIdProduct(e.target.value)}
+                value={idProduct}
+                style={{ color: 'black' }}
+                name="idProduct"
+                label="Product ID"
+              />
             )}
             <Button
-              onClick={() => handleClick(
-                {
-                  hasInStorage: hasInStorage,
-                  price: price,
-                  name: name
+              onClick={() => {
+                const bodies = {
+                  register: {
+                    hasInStorage: hasInStorage === 'yes' ? true : false,
+                    price: (price as number),
+                    name: name
+                  },
+                  update: {
+                    hasInStorage: hasInStorage === 'yes' ? true : false,
+                    price: (price as number),
+                    name: name,
+                    _id: idProduct
+                  },
+                  delete: idProduct
                 }
-              )}
+
+                handleClick((bodies as any)[title.toLowerCase().split(' ')[0]])
+              }}
               marginTop={5}
               size="lg"
-              colorScheme='blue'>{nameButton}</Button>
+              colorScheme='blue'>{nameButton}
+            </Button>
           </FormControl>
         </Stack>
       ) : (
