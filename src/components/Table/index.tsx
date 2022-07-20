@@ -5,6 +5,7 @@ export type Product = {
   name: string;
   price: string;
   hasInStorage: string;
+  id: string;
 }
 
 type TableProps = {
@@ -24,11 +25,11 @@ export function Table({ data }: TableProps) {
           </Tr>
         </Thead>
         <Tbody>
-          {data?.map(product => (
-            <Tr color={"black"}>
+          {data?.map((product, index) => (
+            <Tr key={index} color={"black"}>
               <Td><Text fontSize={10}>{product.name}</Text></Td>
               <Td><Text fontSize={10}>{product.price}</Text></Td>
-              <Td><Text fontSize={10}>{product.hasInStorage}</Text></Td>
+              <Td><Text fontSize={10}>{product.hasInStorage ? "Sim" : "Não"}</Text></Td>
             </Tr>
           ))}
         </Tbody>

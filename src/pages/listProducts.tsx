@@ -1,27 +1,26 @@
-
 import { Product } from "components/Table"
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { api } from "services/axios";
 import FormTemplate from "templates/FormTemplate"
 
 const ListProducts = () => {
+  const [products, setProducts] = useState<Product[]>([]);
 
-
-  useEffect(() => {
-    fetch()
+  const getProducts = useCallback(async () => {
+    const { data: { products } } = await api.get('products');
+    setProducts(products)
   }, [])
 
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
 
-
-  const data: Product[] = [
-    { hasInStorage: 'Sim', name: 'Carne', price: '20.19' },
-    { hasInStorage: 'Não', name: 'Bolo', price: '15.88' }
-  ];
 
   return (
     <FormTemplate
       title="Listar Produtos"
       handleClick={() => { }}
-      data={data}
+      data={products}
       isToRead
       nameButton=""
       hideUpdateLink
