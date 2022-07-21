@@ -19,7 +19,6 @@ function InputNumber({ name, label, ...rest }: InputNumberProps) {
     <FormControl>
       {label && <FormLabel style={{ margin: 0, color: '#06092b' }} htmlFor={name}>{label}</FormLabel>}
 
-
       <NumberInput
         style={{ background: 'gray.700' }}
         name={name}

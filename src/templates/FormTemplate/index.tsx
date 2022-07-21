@@ -128,7 +128,6 @@ const FormTemplate = ({
       ) : (
         <Table data={data} />
       )}
-
     </S.Wrapper >
   )
 }

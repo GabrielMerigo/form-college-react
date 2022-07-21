@@ -26,4 +26,5 @@ const FormRegister = () => {
     </ChakraProvider>
   )
 }
+
 export default FormRegister

@@ -1,6 +1,6 @@
-import { api } from "services/axios"
-import FormTemplate from "templates/FormTemplate"
-import toastr from 'toastr'
+import { api } from "services/axios";
+import FormTemplate from "templates/FormTemplate";
+import toastr from 'toastr';
 
 const DeleteProduct = () => {
   const deleteProduct = async (productId: number) => {
